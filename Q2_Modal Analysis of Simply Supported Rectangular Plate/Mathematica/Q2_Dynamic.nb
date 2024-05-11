@@ -1,0 +1,1223 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     53334,       1215]
+NotebookOptionsPosition[     51145,       1177]
+NotebookOutlinePosition[     51546,       1193]
+CellTagsIndexPosition[     51503,       1190]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+  RowBox[{"(*", "Parameters", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "2"}], ";", 
+  RowBox[{"b", "=", "1"}], ";", 
+  RowBox[{"h", "=", "0.01"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ep", "=", 
+   RowBox[{"140", "*", 
+    RowBox[{"10", "^", "9"}]}]}], ";", 
+  RowBox[{"\[Nu]", "=", "0.33"}], ";", " ", 
+  RowBox[{"\[Rho]", "=", "3700"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NumberOfFrequencies", " ", "=", " ", "7"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Material", " ", "properties"}], "*)"}], 
+  RowBox[{
+   RowBox[{"Dp", "=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"Ep", "*", 
+       RowBox[{"(", 
+        RowBox[{"h", "^", "3"}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"12", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"\[Nu]", "^", "2"}]}], ")"}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Omega]", "[", 
+     RowBox[{"m_", ",", "n_"}], "]"}], "=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "^", "2"}], ")"}], "*", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"m", "/", "a"}], ")"}], "^", "2"}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"n", "/", "b"}], ")"}], "^", "2"}]}], ")"}], "*", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"Dp", "/", 
+       RowBox[{"(", 
+        RowBox[{"\[Rho]", "*", "h"}], ")"}]}], "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", " ", "Frequency", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Initialize", " ", "an", " ", "empty", " ", "list", " ", "to", " ", 
+    "store", " ", "\[Omega]", " ", "values"}], "*)"}], 
+  RowBox[{
+   RowBox[{"omegaValues", "=", 
+    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Iterate", " ", "over", " ", "m", " ", "and", " ", "n", " ", "from", " ", 
+    "1", " ", "to", " ", "5"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", "5"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"j", "=", "1"}], ",", 
+      RowBox[{"j", "<=", "5"}], ",", 
+      RowBox[{"j", "++"}], ",", 
+      RowBox[{
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"omegaValues", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\[Omega]", "[", 
+            RowBox[{"i", ",", "j"}], "]"}], ",", "i", ",", "j"}], "}"}]}], 
+        "]"}], ";"}]}], "]"}]}], "]"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Sort", " ", "omega", " ", "values", " ", "in", " ", "ascending", " ", 
+    "order"}], "*)"}], 
+  RowBox[{
+   RowBox[{"sortedOmegaValues", "=", 
+    RowBox[{"SortBy", "[", 
+     RowBox[{"omegaValues", ",", "First"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Display", " ", "the", " ", "sorted", " ", "results"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"sortedOmegaValues", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "NumberOfFrequencies"}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<\[Omega]\>\"", ",", 
+     RowBox[{"Subscript", "[", 
+      RowBox[{"\"\<(\>\"", ",", 
+       RowBox[{"sortedOmegaValues", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "2"}], "]"}], "]"}], ",", 
+       RowBox[{"sortedOmegaValues", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "3"}], "]"}], "]"}]}], "]"}], ",", "\"\<) = \>\"", 
+     ",", 
+     RowBox[{"sortedOmegaValues", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "\"\< rad/s\>\""}], 
+    "]"}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", "NumberOfFrequencies"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<f\>\"", ",", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"\"\<(\>\"", ",", 
+        RowBox[{"sortedOmegaValues", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "2"}], "]"}], "]"}], ",", 
+        RowBox[{"sortedOmegaValues", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "3"}], "]"}], "]"}]}], "]"}], ",", "\"\<) = \>\"",
+       ",", 
+      RowBox[{
+       RowBox[{"sortedOmegaValues", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "1"}], "]"}], "]"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", "\[Pi]"}], ")"}]}], ",", "\"\< Hz\>\""}], "]"}]}], 
+   "]"}], "\n"}], "\n"}], "Input",
+ CellChangeTimes->{{3.9234775014818306`*^9, 3.923477507040576*^9}, {
+   3.9234776672959967`*^9, 3.9234777344615755`*^9}, {3.923477777162247*^9, 
+   3.923477816946021*^9}, {3.9234779387022467`*^9, 3.923478021335181*^9}, {
+   3.923478067133149*^9, 3.923478069050217*^9}, {3.92347810386932*^9, 
+   3.9234781130349836`*^9}, {3.923478162728381*^9, 3.923478183138229*^9}, {
+   3.92347836716542*^9, 3.923478388520825*^9}, {3.923478422441305*^9, 
+   3.923478440178585*^9}, {3.9234848550055766`*^9, 3.9234848556721983`*^9}, {
+   3.923484915662508*^9, 3.9234850155049148`*^9}, {3.923485085961074*^9, 
+   3.9234851299382257`*^9}, {3.9234851900259047`*^9, 3.9234852738218374`*^9}, 
+   3.923485324408444*^9, {3.9234853710049205`*^9, 3.923485543070729*^9}, {
+   3.9234855932904987`*^9, 3.923485667348837*^9}, {3.9234857475963917`*^9, 
+   3.923485810956149*^9}, 3.9234866394733343`*^9, 3.9244402349858737`*^9},
+ CellLabel->"In[33]:=",ExpressionUUID->"30543392-b2e2-445f-933f-5fb84222a878"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"232.07003585010273`", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"371.3120573601644`", ",", "2", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"603.3820932102672`", ",", "3", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"789.0381218903493`", ",", "1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"928.2801434004109`", ",", "2", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"928.2801434004109`", ",", "4", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1160.3501792505137`", ",", "3", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1346.0062079305958`", ",", "5", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1485.2482294406575`", ",", "4", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1717.3182652907603`", ",", "1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1856.5602868008218`", ",", "2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1902.9742939708424`", ",", "5", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2088.6303226509244`", ",", "3", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2413.5283728410686`", ",", "4", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2831.2544373712535`", ",", "5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3016.9104660513353`", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3156.1524875613973`", ",", "2", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3388.2225234115`", ",", "3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3713.1205736016436`", ",", "4", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4130.8466381318285`", ",", "5", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4687.814724172075`", ",", "1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4827.056745682137`", ",", "2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5059.12678153224`", ",", "3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5384.024831722383`", ",", "4", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5801.750896252568`", ",", "5", ",", "5"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.9234781883288145`*^9, {3.9234783533375187`*^9, 3.9234783925158386`*^9}, {
+   3.9234784263804064`*^9, 3.923478443059431*^9}, {3.923478589673385*^9, 
+   3.923478597505329*^9}, {3.9234786378972473`*^9, 3.923478660102372*^9}, 
+   3.9234787175311775`*^9, 3.923478764968583*^9, 3.9234788243035917`*^9, 
+   3.9234789888800726`*^9, 3.923484089761383*^9, 3.923484330824583*^9, 
+   3.9234843913495293`*^9, 3.923484860094431*^9, {3.9234849204098983`*^9, 
+   3.923484948830474*^9}, 3.923485026968647*^9, {3.923485087679392*^9, 
+   3.923485142880802*^9}, {3.9234851947436237`*^9, 3.9234852102397203`*^9}, {
+   3.923485250141996*^9, 3.9234852767860904`*^9}, 3.9234853280077577`*^9, {
+   3.9234853824482093`*^9, 3.9234854129002657`*^9}, {3.92348549240211*^9, 
+   3.923485546458474*^9}, {3.923485627690904*^9, 3.923485639726965*^9}, 
+   3.9234856803769636`*^9, 3.923485817907118*^9, 3.923486641869999*^9, 
+   3.923490300682206*^9, {3.924440208723728*^9, 3.9244402378857803`*^9}, 
+   3.924440299218582*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"235a878a-110a-40a4-bed4-6adf8ad07072"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"1", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "232.07003585010273`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 1, 1], ") = ", 232.07003585010273`, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299228649*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"d9cd6229-2528-42f7-be12-3c9fa906c1bb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"2", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "371.3120573601644`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 2, 1], ") = ", 371.3120573601644, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299232959*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"89c133c6-a732-4128-a2e9-de1b5ea27ac2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"3", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "603.3820932102672`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 3, 1], ") = ", 603.3820932102672, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992382355`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"a9689572-0da4-41ba-9cbd-c30e62149824"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"1", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "789.0381218903493`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 1, 2], ") = ", 789.0381218903493, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299243236*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"7d0580a7-d5e3-4615-8601-9abb3920d6fd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"2", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "928.2801434004109`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 2, 2], ") = ", 928.2801434004109, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299248508*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"2c53075c-c523-493a-ad8f-32cace12bab8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"4", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "928.2801434004109`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 4, 1], ") = ", 928.2801434004109, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992535343`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"4a54789e-918b-4e4a-8817-74f16cf7f78c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Omega]\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"3", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "1160.3501792505137`", 
+   "\[InvisibleSpace]", "\<\" rad/s\"\>"}],
+  SequenceForm["\[Omega]", 
+   Subscript["(", 3, 2], ") = ", 1160.3501792505137`, " rad/s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992575316`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"595aaafb-798c-4481-9d5b-1c207f58dea9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"1", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "36.93509334905721`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 1, 1], ") = ", 36.93509334905721, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299259532*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"4be6e80d-c46b-444a-a540-8a4afa0eb821"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"2", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "59.096149358491544`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 2, 1], ") = ", 59.096149358491544`, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992625303`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"7ce3ba35-bb70-4106-a2f4-1a18deba091c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"3", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "96.03124270754876`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 3, 1], ") = ", 96.03124270754876, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.92444029926453*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"84c139eb-1153-474b-b695-5a250dcb84f8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"1", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "125.57931738679453`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 1, 2], ") = ", 125.57931738679453`, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992665305`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"0d37adf3-f1b2-4196-9451-1d76cf3249ca"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"2", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "147.74037339622885`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 2, 2], ") = ", 147.74037339622885`, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299268531*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"41bc9f06-59ca-4945-9e0d-a865780b3f45"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"4", ",", "1"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "147.74037339622885`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 4, 1], ") = ", 147.74037339622885`, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.924440299271531*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"9e8d6239-b84b-4a21-89dc-bcbe3ba8a0c3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"f\"\>", "\[InvisibleSpace]", 
+   SubscriptBox["\<\"(\"\>", 
+    RowBox[{"3", ",", "2"}]], "\[InvisibleSpace]", "\<\") = \"\>", 
+   "\[InvisibleSpace]", "184.6754667452861`", 
+   "\[InvisibleSpace]", "\<\" Hz\"\>"}],
+  SequenceForm["f", 
+   Subscript["(", 3, 2], ") = ", 184.6754667452861, " Hz"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.923485027181905*^9, {3.9234850879241457`*^9, 3.9234851428847704`*^9}, {
+   3.923485194751794*^9, 3.923485210536066*^9}, {3.9234852504217863`*^9, 
+   3.9234852767916107`*^9}, 3.9234853282921305`*^9, {3.92348538266409*^9, 
+   3.923485413178152*^9}, {3.9234854919287424`*^9, 3.9234855462707796`*^9}, {
+   3.9234856275906067`*^9, 3.9234856395579185`*^9}, 3.923485680220191*^9, 
+   3.9234858178638725`*^9, 3.9234866418755083`*^9, 3.923490300682206*^9, {
+   3.924440208729725*^9, 3.924440237893895*^9}, 3.9244402992735305`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"0c1815d8-d25d-4a63-a195-1670de2456a6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"createModePlot", "[", 
+   RowBox[{"mv_", ",", "nv_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"modeshape", ",", "\[Omega]", ",", "mode"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"Mode", " ", "shape"}], "*)"}], 
+    RowBox[{
+     RowBox[{"modeshape", "=", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"mv", "*", "\[Pi]", "*", "x"}], ")"}], "/", "a"}], "]"}], 
+       "*", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"nv", "*", "\[Pi]", "*", "y"}], ")"}], "/", "b"}], 
+        "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Frequency", " ", "functions"}], "*)"}], 
+     RowBox[{
+      RowBox[{"\[Omega]", "[", 
+       RowBox[{"m_", ",", "n_"}], "]"}], ":=", 
+      RowBox[{
+       RowBox[{"\[Pi]", "^", "2"}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"m", "/", "a"}], ")"}], "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n", "/", "b"}], ")"}], "^", "2"}]}], ")"}], "*", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"Dp", "/", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]", "*", "h"}], ")"}]}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", "Mode", "*)"}], 
+     RowBox[{
+      RowBox[{"mode", "[", "t_", "]"}], ":=", 
+      RowBox[{"modeshape", "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           RowBox[{"\[Omega]", "[", 
+            RowBox[{"mv", ",", "nv"}], "]"}], "*", "t"}], "]"}], "+", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           RowBox[{"\[Omega]", "[", 
+            RowBox[{"mv", ",", "nv"}], "]"}], "*", "t"}], "]"}]}], ")"}]}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", "Plot", "*)"}], 
+     RowBox[{"DynamicModule", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"n", "=", "0"}], "}"}], ",", 
+       RowBox[{"Column", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Animator", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "n", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "10"}], "}"}], ",", "0.25"}], "]"}], ",", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Plot3D", "[", 
+              RowBox[{
+               RowBox[{"mode", "[", "n", "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "a"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"y", ",", "0", ",", "b"}], "}"}], ",", 
+               RowBox[{"AxesLabel", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<W(x,y)\>\""}], 
+                 "}"}]}], ",", 
+               RowBox[{"PlotRange", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "a"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "b"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+               RowBox[{"BoxRatios", "->", 
+                RowBox[{"{", 
+                 RowBox[{"a", ",", "b", ",", "0.5"}], "}"}]}], ",", 
+               RowBox[{"Mesh", "->", "21"}], ",", 
+               RowBox[{"AxesStyle", "->", "Larger"}], ",", 
+               RowBox[{"ImageSize", "->", "400"}], ",", 
+               RowBox[{"ColorFunction", "->", "Hue"}]}], "]"}], ",", 
+             RowBox[{"DensityPlot", "[", 
+              RowBox[{
+               RowBox[{"mode", "[", "n", "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0", ",", "a"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"y", ",", "0", ",", "b"}], "}"}], ",", 
+               RowBox[{"ImageSize", "->", "200"}], ",", 
+               RowBox[{"Mesh", "->", "21"}], ",", 
+               RowBox[{"AxesStyle", "->", "Larger"}], ",", 
+               RowBox[{"AspectRatio", "->", "Automatic"}], ",", 
+               RowBox[{"ColorFunction", "->", "Hue"}]}], "]"}], ",", 
+             RowBox[{"Time", "->", 
+              RowBox[{"n", " ", "\"\<secs\>\""}]}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], "]"}]}]}], "\n", "]"}]}]], "Input",
+ CellChangeTimes->{3.9234856752806168`*^9},
+ CellLabel->"In[45]:=",ExpressionUUID->"3e62bb4c-c774-46a9-9837-b016162892ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"plots", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "NumberOfFrequencies"}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"plots", ",", 
+     RowBox[{"Panel", "[", 
+      RowBox[{
+       RowBox[{"createModePlot", "[", 
+        RowBox[{
+         RowBox[{"sortedOmegaValues", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2"}], "]"}], "]"}], ",", 
+         RowBox[{"sortedOmegaValues", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "3"}], "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{
+         RowBox[{"\"\<Plot \>\"", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<: \[Omega]_\>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"sortedOmegaValues", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "2"}], "]"}], "]"}], "]"}], "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"sortedOmegaValues", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "3"}], "]"}], "]"}], "]"}]}], ",", "Bold"}], 
+        "]"}]}], "]"}]}], "]"}]}], "]"}], "\n", 
+ RowBox[{"plots", "\n"}], "\n"}], "Input",
+ CellChangeTimes->{
+  3.923484327602063*^9, 3.9234843794493313`*^9, {3.9234845604146805`*^9, 
+   3.9234845819293003`*^9}, {3.924440281632884*^9, 3.924440295811399*^9}},
+ CellLabel->"In[46]:=",ExpressionUUID->"361f7dc4-e1a9-4359-b9f5-3ec9f8e8f35c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 3.72117280960083}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 14.88469123840332, AnimationTimeIndex -> 
+            14.88469123840332]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37432[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37432[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             698.2367040176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 1: \[Omega]_11\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 2.986729145050049}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 11.946916580200195`, AnimationTimeIndex -> 
+            11.946916580200195`]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37436[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37436[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             703.0882665176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 2: \[Omega]_21\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 0}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37440[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37440[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm]]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 3: \[Omega]_31\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 0.02253735065460205}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 0.0901494026184082, AnimationTimeIndex -> 
+            0.0901494026184082]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37444[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37444[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             707.9398290176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 4: \[Omega]_12\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 2.5582889318466187`}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 10.233155727386475`, AnimationTimeIndex -> 
+            10.233155727386475`]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37448[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37448[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             698.2367040176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 5: \[Omega]_22\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 2.5357515811920166`}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 10.143006324768066`, AnimationTimeIndex -> 
+            10.143006324768066`]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37452[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37452[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             698.2367040176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 6: \[Omega]_41\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )], ",", 
+   TemplateBox[{
+     PanelBox[
+      DynamicModuleBox[{$CellContext`n$$ = 2.39311683177948}, 
+       TagBox[
+        GridBox[{{
+           AnimatorBox[
+            Dynamic[$CellContext`n$$], {0, 10}, AnimationRate -> 0.25, 
+            AnimationRunTime -> 9.57246732711792, AnimationTimeIndex -> 
+            9.57246732711792]}, {
+           DynamicBox[
+            ToBoxes[{
+              Plot3D[
+               $CellContext`mode$37456[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               AxesLabel -> {"x", "y", "W(x,y)"}, 
+               PlotRange -> {{0, $CellContext`a}, {0, $CellContext`b}, {-2, 
+                 2}}, BoxRatios -> {$CellContext`a, $CellContext`b, 0.5}, 
+               Mesh -> 21, AxesStyle -> Larger, ImageSize -> 400, 
+               ColorFunction -> Hue], 
+              DensityPlot[
+               $CellContext`mode$37456[$CellContext`n$$], {$CellContext`x, 
+                0, $CellContext`a}, {$CellContext`y, 0, $CellContext`b}, 
+               ImageSize -> 200, Mesh -> 21, AxesStyle -> Larger, AspectRatio -> 
+               Automatic, ColorFunction -> 
+               Hue], $CellContext`Time -> $CellContext`n$$ "secs"}, 
+             StandardForm], 
+            ImageSizeCache -> {
+             698.2367040176391, {118., 121.34060186010919`}}]}}, 
+         DefaultBaseStyle -> "Column", 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+       DynamicModuleValues :> {}]], 
+     StyleBox["\"Plot 7: \[Omega]_32\"", Bold, StripOnInput -> False]},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+         "PanelLabel"]}, {
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {2, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", 
+         RowBox[{"{", #2, "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"{", 
+             RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+             RowBox[{"LabelStyle", "\[Rule]", 
+               RowBox[{"{", "}"}]}], ",", 
+             RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "}"}]}], 
+       "]"}]& )]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.923484331227024*^9, 3.9234843921723456`*^9, {3.923484563204935*^9, 
+   3.9234845852443094`*^9}, 3.923484860783106*^9, 3.923484921045874*^9, 
+   3.9234851436157656`*^9, 3.923485211216543*^9, {3.92348525120492*^9, 
+   3.923485277427909*^9}, {3.9234853832623873`*^9, 3.9234854138122764`*^9}, 
+   3.9234855186242285`*^9, 3.9234856809106903`*^9, 3.92348664204185*^9, 
+   3.9234903010889335`*^9, {3.9244402090672607`*^9, 3.924440238094634*^9}, 
+   3.92444029972968*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"7a40204c-5c86-4577-a3a7-94d8cc6ae1cc"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 568.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4d353618-20d2-4446-a209-620e1d41d7d0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5835, 156, 485, "Input",ExpressionUUID->"30543392-b2e2-445f-933f-5fb84222a878"],
+Cell[6418, 180, 3310, 69, 71, "Output",ExpressionUUID->"235a878a-110a-40a4-bed4-6adf8ad07072"],
+Cell[CellGroupData[{
+Cell[9753, 253, 1047, 20, 23, "Print",ExpressionUUID->"d9cd6229-2528-42f7-be12-3c9fa906c1bb"],
+Cell[10803, 275, 1044, 20, 23, "Print",ExpressionUUID->"89c133c6-a732-4128-a2e9-de1b5ea27ac2"],
+Cell[11850, 297, 1046, 20, 23, "Print",ExpressionUUID->"a9689572-0da4-41ba-9cbd-c30e62149824"],
+Cell[12899, 319, 1044, 20, 23, "Print",ExpressionUUID->"7d0580a7-d5e3-4615-8601-9abb3920d6fd"],
+Cell[13946, 341, 1044, 20, 23, "Print",ExpressionUUID->"2c53075c-c523-493a-ad8f-32cace12bab8"],
+Cell[14993, 363, 1046, 20, 23, "Print",ExpressionUUID->"4a54789e-918b-4e4a-8817-74f16cf7f78c"],
+Cell[16042, 385, 1049, 20, 23, "Print",ExpressionUUID->"595aaafb-798c-4481-9d5b-1c207f58dea9"],
+Cell[17094, 407, 1024, 20, 23, "Print",ExpressionUUID->"4be6e80d-c46b-444a-a540-8a4afa0eb821"],
+Cell[18121, 429, 1029, 20, 23, "Print",ExpressionUUID->"7ce3ba35-bb70-4106-a2f4-1a18deba091c"],
+Cell[19153, 451, 1023, 20, 23, "Print",ExpressionUUID->"84c139eb-1153-474b-b695-5a250dcb84f8"],
+Cell[20179, 473, 1029, 20, 23, "Print",ExpressionUUID->"0d37adf3-f1b2-4196-9451-1d76cf3249ca"],
+Cell[21211, 495, 1027, 20, 23, "Print",ExpressionUUID->"41bc9f06-59ca-4945-9e0d-a865780b3f45"],
+Cell[22241, 517, 1027, 20, 23, "Print",ExpressionUUID->"9e8d6239-b84b-4a21-89dc-bcbe3ba8a0c3"],
+Cell[23271, 539, 1026, 20, 23, "Print",ExpressionUUID->"0c1815d8-d25d-4a63-a195-1670de2456a6"]
+}, Open  ]]
+}, Open  ]],
+Cell[24324, 563, 4618, 120, 238, "Input",ExpressionUUID->"3e62bb4c-c774-46a9-9837-b016162892ac"],
+Cell[CellGroupData[{
+Cell[28967, 687, 1520, 38, 143, "Input",ExpressionUUID->"361f7dc4-e1a9-4359-b9f5-3ec9f8e8f35c"],
+Cell[30490, 727, 20639, 447, 2369, "Output",ExpressionUUID->"7a40204c-5c86-4577-a3a7-94d8cc6ae1cc"]
+}, Open  ]]
+}
+]
+*)
+
