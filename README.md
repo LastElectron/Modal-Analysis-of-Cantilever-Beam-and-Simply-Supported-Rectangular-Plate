@@ -19,11 +19,11 @@ The project aims to develop analytical methods for determining the natural frequ
 ## YouTube Video
 
 Check out my YouTube videos for a demonstration of the project:
-1) Modal Analysis of Cantilever Beam | ANSYS Workbench 2023
+1) Modal Analysis of Cantilever Beam | ANSYS Workbench 2023 (Click Below to Open Video)
    
 [![Modal Analysis of Cantilever Beam | ANSYS Workbench 2023](https://img.youtube.com/vi/f_rqLNfbnDM/0.jpg)](https://youtu.be/f_rqLNfbnDM)
 
-2) Modal Analysis of Rectangular Plate | ANSYS Workbench 2023
+2) Modal Analysis of Rectangular Plate | ANSYS Workbench 2023 (Click Below to Open Video)
 
 [![Modal Analysis of Rectangular Plate | ANSYS Workbench 2023](https://img.youtube.com/vi/HzrzkBbOfjM/0.jpg)](https://youtu.be/HzrzkBbOfjM)
 
