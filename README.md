@@ -20,4 +20,5 @@ The project aims to develop analytical methods for determining the natural frequ
 
 Check out my YouTube video for a demonstration of the project:
 [![Modal Analysis of Cantilever Beam | ANSYS Workbench 2023](https://youtu.be/f_rqLNfbnDM)]
+
 [![Modal Analysis of Rectangular Plate | ANSYS Workbench 2023](https://youtu.be/HzrzkBbOfjM)]
