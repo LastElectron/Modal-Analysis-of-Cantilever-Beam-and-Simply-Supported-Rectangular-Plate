@@ -16,7 +16,7 @@ The project aims to develop analytical methods for determining the natural frequ
   - Mathematica
   - Analytical Solution
 
-## YouTube Video
+## YouTube Videos
 
 Check out my YouTube videos for a demonstration of the project:
 1) Modal Analysis of Cantilever Beam | ANSYS Workbench 2023 (Click Below to Open Video)
