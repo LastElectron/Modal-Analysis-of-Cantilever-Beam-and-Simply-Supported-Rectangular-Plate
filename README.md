@@ -22,6 +22,6 @@ Check out my YouTube videos for a demonstration of the project:
 
 [![Modal Analysis of Cantilever Beam | ANSYS Workbench 2023](https://img.youtube.com/vi/f_rqLNfbnDM/0.jpg)](https://youtu.be/f_rqLNfbnDM)
 
-[![Modal Analysis of Rectangular Plate | ANSYS Workbench 2023](link-to-your-youtube-thumbnail)](https://youtu.be/HzrzkBbOfjM)
+[![Modal Analysis of Rectangular Plate | ANSYS Workbench 2023](https://img.youtube.com/vi/HzrzkBbOfjM/0.jpg)](https://youtu.be/HzrzkBbOfjM)
 
 
