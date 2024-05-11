@@ -1,0 +1,14 @@
+/COM,ANSYS RELEASE 2023 R2           BUILD 23.2      UP20230531       13:25:19
+
+ *** WARNING ***                         CP =       0.734   TIME= 13:25:21
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         CP =       6.859   TIME= 13:25:35
+ The Distributed Sparse Matrix Solver used by the Block Lanczos          
+ eigensolver is currently running in the out-of-core memory mode.  This  
+ memory mode may provide significantly worse performance compared to     
+ the in-core memory mode, depending on the amount of available system    
+ memory and I/O speed.  Please monitor the solver performance to ensure  
+ that the large amount of I/O to the solver files does not create a      
+ bottleneck for performance.                                             
